@@ -72,7 +72,7 @@ func (a *Autoguess) guess() int {
 
 func generateRandomNumber(max int, min int) int {
 	rand.Seed(time.Now().UnixNano())
-	n := max + rand.Intn(max-min+1)
+	n := min + rand.Intn(max-min+1)
 	return n
 }
 
@@ -80,7 +80,7 @@ func main() {
 
 	game := &Game{
 		NumberOfGuesses:     0,
-		NumberTryingToMatch: generateRandomNumber(1, 10),
+		NumberTryingToMatch: generateRandomNumber(10, 1),
 	}
 
 	auto := &Autoguess{
